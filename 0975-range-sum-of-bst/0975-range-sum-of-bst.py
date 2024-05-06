@@ -13,13 +13,11 @@ class Solution:
         ans = 0
         if not v > high and not v < low:
             ans += v
-            ans += self.rangeSumBST(root.left, low, high)
-            ans += self.rangeSumBST(root.right, low, high)
         
-        if v > high:
-            ans += self.rangeSumBST(root.left, low, high)
-        if v < low:
+        if v < high:
             ans += self.rangeSumBST(root.right, low, high)
+        if v > low:
+            ans += self.rangeSumBST(root.left, low, high)
 
         return ans
         
