@@ -7,22 +7,22 @@ class Solution:
         graph = defaultdict(list)
 
         for i in range(l):
-            for j in range(l):
+            for j in range(i + 1, l):
                 if isConnected[i][j]:
                     graph[i].append(j)
+                    graph[j].append(i)
 
         def travers(ver):
             if ver in seen:
                 return
             seen.add(ver)
-            conns = graph[ver]
-            for conn in conns:
+            for conn in graph[ver]:
                 travers(conn)
 
-        for key in graph.keys():
-            if(not key in seen):
+        for ver in range(l):
+            if(not ver in seen):
                 ans += 1
-                travers(key)
+                travers(ver)
 
         return ans
         
