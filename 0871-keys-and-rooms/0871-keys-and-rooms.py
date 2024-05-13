@@ -1,8 +1,6 @@
 class Solution:
     def canVisitAllRooms(self, rooms: List[List[int]]) -> bool:
-        seen = set()
-        graph = defaultdict(list)
-        
+        seen = set()        
         def dfs(keys):
             for key in keys:
                 if key not in seen:
