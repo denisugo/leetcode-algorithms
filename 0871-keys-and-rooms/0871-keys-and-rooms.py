@@ -8,8 +8,5 @@ class Solution:
                     dfs(rooms[key])
         seen.add(0)
         dfs(rooms[0])
-        for i in range(len(rooms)):
-            if i not in seen:
-                return False
-        return True
+        return len(seen) == len(rooms)
         
